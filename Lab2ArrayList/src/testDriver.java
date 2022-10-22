@@ -21,18 +21,33 @@ public class testDriver {
 //        }
 //        System.out.println(counter);
 
-        //testing add() method
+        //testing boolean add() method
 
-        ArrayList<Node<Integer>> arr = new ArrayList<>();
+//        ArrayList<Node<Integer>> arr = new ArrayList<>();
+//
+//        arr.add(parent);
+//
+//        System.out.println(arr.size());
+//
+//        arr.add(middle);
+//        arr.add(child);
+//
+//        System.out.println(arr.size());
 
-        arr.add(parent);
+        //testing void add() method and toString()
 
-        System.out.println(arr.size());
-
-        arr.add(middle);
-        arr.add(child);
-
-        System.out.println(arr.size());
-
+        ArrayList<Integer> arr = new ArrayList<>();
+        System.out.println(arr);
+        arr.add(0);
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        arr.add(4);
+        arr.add(5);
+        System.out.println(arr);
+        arr.add(2, 10);
+        System.out.println(arr);
+        arr.add(0, 10);
+        System.out.println(arr);
     }
 }
