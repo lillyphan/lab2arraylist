@@ -20,4 +20,17 @@ public class ArrayList<E> {
         return counter;
     }
 
+    public boolean add(E data){
+        if (elemZero != null) {
+            Node<E> current = elemZero;
+            for (int i = 0; i < size() - 1; i++){
+                current = current.getChild();
+            }
+            current.setChild(new Node<>(data));
+        } else {
+            elemZero = new Node<>(data);
+        }
+        return true;
+    }
+
 }

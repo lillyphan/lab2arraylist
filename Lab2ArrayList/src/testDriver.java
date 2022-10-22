@@ -6,21 +6,33 @@ public class testDriver {
         Node<Integer> child = new Node<>(5);
         Node<Integer> middle = new Node<>(10, child, parent);
 
-        parent.setChild(middle);
+//        parent.setChild(middle);
+//
+//        //testing size method
+//        int counter = 1;
+//        if (parent != null){
+//            Node<Integer> current = parent;
+//            while (current.getChild() != null){
+//                counter++;
+//                current = current.getChild();
+//            }
+//        } else {
+//            System.out.println('0');
+//        }
+//        System.out.println(counter);
 
-        //testing size method
-        int counter = 1;
-        if (parent != null){
-            Node<Integer> current = parent;
-            while (current.getChild() != null){
-                counter++;
-                current = current.getChild();
-            }
-        } else {
-            System.out.println('0');
-        }
-        System.out.println(counter);
+        //testing add() method
 
+        ArrayList<Node<Integer>> arr = new ArrayList<>();
+
+        arr.add(parent);
+
+        System.out.println(arr.size());
+
+        arr.add(middle);
+        arr.add(child);
+
+        System.out.println(arr.size());
 
     }
 }
