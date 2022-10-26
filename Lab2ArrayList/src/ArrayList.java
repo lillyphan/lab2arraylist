@@ -22,7 +22,11 @@ public class ArrayList<E> {
     }
 
     public boolean add(E data){
+
         //adds a new Node containing E at the end of the list and returns true if element was successfully added
+
+        //adds a new Node containing E at the end of the list and returns true if element wasa successfully added
+
         Node<E> elemNew = new Node<>(data);
         if (elemZero != null) {
             Node<E> current = elemZero;
@@ -108,8 +112,6 @@ public class ArrayList<E> {
         }
        return kickedOut; //returns the original value before it was replaced by E data
     }
-
-
     @Override
     public String toString() {
         if (elemZero != null) {

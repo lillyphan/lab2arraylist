@@ -34,6 +34,7 @@ public class testDriver {
 //
 //        System.out.println(arr.size());
 
+
         //testing void add() method and toString()
         ArrayList<Integer> arr = new ArrayList<>();
         System.out.println(arr);
@@ -82,5 +83,22 @@ public class testDriver {
         System.out.println("im replacing " + arr.set(7, 0));
         System.out.println(arr);
 
+
+        //testing void add() method and toString()
+
+
+        ArrayList<Integer> arr = new ArrayList<>();
+        System.out.println(arr);
+        arr.add(0);
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        arr.add(4);
+        arr.add(5);
+        System.out.println(arr);
+        arr.add(6, 10);
+        System.out.println(arr);
+        arr.add(0, 10);
+        System.out.println(arr);
     }
 }
