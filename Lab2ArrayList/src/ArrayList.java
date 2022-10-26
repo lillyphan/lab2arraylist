@@ -22,7 +22,11 @@ public class ArrayList<E> {
     }
 
     public boolean add(E data){
+
+        //adds a new Node containing E at the end of the list and returns true if element was successfully added
+
         //adds a new Node containing E at the end of the list and returns true if element wasa successfully added
+
         Node<E> elemNew = new Node<>(data);
         if (elemZero != null) {
             Node<E> current = elemZero;
@@ -58,6 +62,56 @@ public class ArrayList<E> {
         }
     }
 
+    //get Method returns int at said index
+    public E get(int i){
+        Node<E> a = elemZero; //loops through arraylist to get to certain index
+        if (i < 0 || i > this.size()){ //if it's out of bounds, return ull
+            return null;
+        } else {
+            for (int j = 0; j < i; j++) { //loops through to get to index i
+                a = a.getChild();
+            }
+            return a.getData(); //returns data at index i
+        }
+    }
+
+    //remove int at certain index (i)
+    public E remove(int i) {
+        Node<E> current = elemZero; //loops through arraylist to get to certain index
+        if(i != 0){
+            for(int j = 0; j < i -1; j++){ //loops to the one index before i
+                current = current.getChild();
+            }
+        } else { //if the index is 0; sets next node as main parent that has no parent
+            elemZero = elemZero.getChild();
+            elemZero.setParent(null);
+        }
+        //links to the Nodes before and after new element, cutting off the middle
+        Node<E> deletion = current.getChild();
+        current.setChild(deletion.getChild());
+
+        if(deletion.getChild() != null){ //if you want to remove
+            current.getChild().setParent(current);
+        }
+        return deletion.getData(); //returns data that was deleted
+    }
+
+    //method to set or replace a number at certain index
+    public E set(int i, E data) {
+        E kickedOut = null; //generic type that stores value that is getting replaced
+        Node<E> current = elemZero; //loops through arraylist to get to certain index
+        if(i!=0) {
+            for (int j = 0; j < i; j++) { //loops to index i
+               current = current.getChild();
+            }
+            kickedOut = current.getData(); //gets original data from node at index i before replacing
+            current.setData(data); //sets node with new data/value
+        } else { //replace with data if index i = 0
+            kickedOut = elemZero.getData();
+            elemZero.setData(data);
+        }
+       return kickedOut; //returns the original value before it was replaced by E data
+    }
     @Override
     public String toString() {
         if (elemZero != null) {
