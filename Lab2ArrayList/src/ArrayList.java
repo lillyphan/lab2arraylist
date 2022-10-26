@@ -37,7 +37,7 @@ public class ArrayList<E> {
         return true;
     }
 
-    void add(int i, E data){
+    public void add(int i, E data){
         //adds a new Node containing E at index i
         Node<E> current = elemZero;
         Node<E> elemNew = new Node<>(data);
