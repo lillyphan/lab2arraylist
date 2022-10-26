@@ -45,7 +45,11 @@ public class testDriver {
         arr.add(5);
         System.out.println(arr);
 
+
         arr.add(2, 10);
+
+        arr.add(6, 10);
+
         System.out.println(arr);
 
         arr.add(0, 10);
