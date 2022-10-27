@@ -1,28 +1,45 @@
+//preity and lilly's array list class (generic type E)
+/*lilly focused on:
+    size()
+    boolean add()
+    void ()
+    toString()
+ */
+/* preity focused on:
+    get()
+    remove()
+    set()
+ */
+//10/24/22
 public class ArrayList<E> {
-
+    //elemZero is our very special node that we use in all methods
+    //examples: check is arrayList is empty, starting object for loop
+    //it has an important job!
     Node<E> elemZero = null;
 
     public ArrayList() {
         //empty constructor
     }
 
+    //Returns the size of the ArrayList
     public int size() {
-        //Returns the size of the ArrayList
+
         int counter = 1;
-        if (elemZero != null) {
+        if (elemZero != null) { //if there is at least one object
             Node<E> current = elemZero;
             while (current.getChild() != null) { //loops until the last Node in the list is found (Node w/o child)
                 counter++; //updates number of nodes in list
                 current = current.getChild();
             }
         } else {
-            return 0;
+            return 0; //no objects in the arraylist
         }
         return counter;
     }
 
+    //adds a new Node containing E at the end of the list and returns true if element was successfully added
     public boolean add(E data){
-        //adds a new Node containing E at the end of the list and returns true if element was successfully added
+
         Node<E> elemNew = new Node<>(data);
         if (elemZero != null) {
             Node<E> current = elemZero;
@@ -37,8 +54,9 @@ public class ArrayList<E> {
         return true;
     }
 
+    //adds a new Node containing E at index i
     public void add(int i, E data){
-        //adds a new Node containing E at index i
+
         Node<E> current = elemZero;
         Node<E> elemNew = new Node<>(data);
         if (i != 0){
@@ -50,7 +68,7 @@ public class ArrayList<E> {
                 elemNew.setChild(current.getChild());
                 current.getChild().setParent(elemNew);
             }
-            current.setChild(elemNew);
+            current.setChild(elemNew); //sets the new data as a child of node current
         } else { //if the index is 0, only rearrange links of the first node
             elemZero.setParent(elemNew);
             elemNew.setChild(elemZero);
@@ -109,16 +127,17 @@ public class ArrayList<E> {
        return kickedOut; //returns the original value before it was replaced by E data
     }
 
+    //toString method returns string representation of our arraylist object
     @Override
     public String toString() {
-        if (elemZero != null) {
+        if (elemZero != null) { //if it's not an empty array list
             String str = "[";
             Node<E> current = elemZero;
             for (int i = 0; i < size() - 1; i++) { //loops through ArrayList and adds data of each Node
-                str = str.concat(current.getData() + ", ");
+                str = str.concat(current.getData() + ", "); //adds element
                 current = current.getChild();
             }
-            str = str.concat(current.getData() + "]");
+            str = str.concat(current.getData() + "]"); //ends arrayList
             return str;
         } else { //if there is nothing in the ArrayList, return null
             return null;
