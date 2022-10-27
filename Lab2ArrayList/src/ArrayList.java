@@ -109,7 +109,6 @@ public class ArrayList<E> {
        return kickedOut; //returns the original value before it was replaced by E data
     }
 
-
     @Override
     public String toString() {
         if (elemZero != null) {
