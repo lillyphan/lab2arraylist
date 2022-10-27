@@ -1,3 +1,10 @@
+/**
+ * Node
+ * Author: Lilly Phan
+ * Date: 10/27/22
+ * On My Honor, I confirm that I followed all collaboration policy guidelines, and that the work I am submitting is my own: LP
+ **/
+
 public class Node<E> {
     private Node<E> parent;
     private Node<E> child;
